@@ -1,5 +1,5 @@
 <main class="flex justify-center bg-gray-900 min-h-screen p-8">
-  <div class="bg-white shadow-lg rounded-lg p-6 max-w-lg w-full">
+  <div class="bg-white shadow-lg rounded-lg p-6 max-w-3/4 w-full">
     <h4 class="text-xl font-bold text-center text-gray-800 mb-2">TODO LIST</h4>
 
     <div class="space-y-2">
@@ -14,11 +14,12 @@
         <input [(ngModel)]="task.desc" type="text" name="desc" placeholder="Enter Task Description"
           class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
       </div>
-
       <div>
         <label class="block text-gray-700 font-medium">Date</label>
-        <input [(ngModel)]="task.date" type="date" [min]="minDate"
-          class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+        <div (click)="openDatePicker()" class="relative">
+          <input #dateInput [(ngModel)]="task.date" type="date" [min]="minDate"
+            class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer">
+        </div>
       </div>
 
       <div>
@@ -54,7 +55,7 @@
       </div>
 
       <button (click)="addTask()"
-        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+        class="w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-600 transition duration-300">
         Add Task
       </button>
     </div>
@@ -72,14 +73,17 @@
             }">
             <div class="flex justify-between items-center">
               <div >
-                <h3 [ngClass]="{'line-through': item.completed}" class="text-lg font-bold text-gray-800 break-words">{{ item.title }}</h3>
-                <p class="text-gray-600 break-words">{{ item.desc }}</p>
+                <h3 [ngClass]="{'line-through': item.completed}" class="text-lg font-bold text-gray-800 break-words break-all">{{ item.title }}</h3>
+                <p class="text-gray-600 break-words break-all">{{ item.desc }}</p>
                 <p class="text-gray-600"><strong>Date:</strong> {{ item.date }}</p>
               </div>
               <div class="flex flex-col items-center gap-1">
                 <input type="checkbox" (change)="toggleTaskCompletion(item)" />
                 <button (click)="deleteTask(item, 'Work')" class="text-black hover:text-red-700">
                   <i class="fas fa-trash"></i> 
+                </button>
+                <button (click)="editTask(item)" class="text-black hover:text-blue-700">
+                  <i class="fas fa-edit"></i> 
                 </button>
               </div>
             </div>
@@ -99,14 +103,17 @@
             }">
             <div class="flex justify-between items-center">
               <div >
-                <h3 [ngClass]="{'line-through': item.completed}" class="text-lg font-bold text-gray-800 break-words">{{ item.title }}</h3>
-                <p class="text-gray-600 break-words">{{ item.desc }}</p>
+                <h3 [ngClass]="{'line-through': item.completed}" class="text-lg font-bold text-gray-800 break-words break-all">{{ item.title }}</h3>
+                <p class="text-gray-600 break-words break-all">{{ item.desc }}</p>
                 <p class="text-gray-600"><strong>Date:</strong> {{ item.date }}</p>
               </div>
               <div class="flex flex-col items-center gap-1">
                 <input type="checkbox"  (change)="toggleTaskCompletion(item)" />
               <button (click)="deleteTask(item, 'Work')" class="text-black hover:text-red-700">
                 <i class="fas fa-trash"></i> 
+              </button>
+              <button (click)="editTask(item)" class="text-black hover:text-blue-700">
+                <i class="fas fa-edit"></i> 
               </button>
               </div>
             </div>

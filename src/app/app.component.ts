@@ -70,5 +70,16 @@ export class AppComponent {
       this.personalTasks = this.personalTasks.filter(t => t !== task);
     }
   }
+  editTask(task: TodoType) {
+    this.task = { ...task }; 
+    this.deleteTask(task, task.taskType); 
+  }
+  openDatePicker() {
+    const dateInput = document.querySelector('input[type="date"]') as HTMLInputElement;
+    if (dateInput) {
+      dateInput.showPicker(); // Opens the native date picker
+    }
+  }  
+  
   
 }
