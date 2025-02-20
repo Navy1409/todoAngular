@@ -737,6 +737,12 @@
   .underline {
     text-decoration-line: underline;
   }
+  .accent-blue-600 {
+    accent-color: var(--color-blue-600);
+  }
+  .accent-gray-900 {
+    accent-color: var(--color-gray-900);
+  }
   .accent-red-500 {
     accent-color: var(--color-red-500);
   }
@@ -810,6 +816,11 @@
   .focus\:ring-blue-500 {
     &:focus {
       --tw-ring-color: var(--color-blue-500);
+    }
+  }
+  .focus\:ring-gray-900 {
+    &:focus {
+      --tw-ring-color: var(--color-gray-900);
     }
   }
   .focus\:ring-red-500 {

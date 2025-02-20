@@ -6,19 +6,19 @@
       <div>
         <label class="block text-gray-700 font-medium">Title</label>
         <input [(ngModel)]="task.title" type="text" name="title" placeholder="Enter Task Title"
-          class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900">
       </div>
 
       <div>
         <label class="block text-gray-700 font-medium">Description</label>
         <input [(ngModel)]="task.desc" type="text" name="desc" placeholder="Enter Task Description"
-          class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+          class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900">
       </div>
       <div>
         <label class="block text-gray-700 font-medium">Date</label>
         <div (click)="openDatePicker()" class="relative">
           <input #dateInput [(ngModel)]="task.date" type="date" [min]="minDate"
-            class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer">
+            class="w-full p-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 cursor-pointer">
         </div>
       </div>
 
@@ -27,12 +27,12 @@
         <div class="flex gap-4">
           <label class="flex items-center space-x-2">
             <input [(ngModel)]="task.priority" type="radio" value="High" name="priority"
-              class="text-blue-600 accent-red-500 focus:ring-red-500">
+              class=" accent-red-500 focus:ring-red-500">
             <span class="text-red-500 font-bold">High</span>
           </label>
           <label class="flex items-center space-x-2">
             <input [(ngModel)]="task.priority" type="radio" value="Low" name="priority"
-              class="text-blue-600 focus:ring-blue-500">
+              class="accent-blue-600 focus:ring-blue-500">
             <span class="text-blue-500 font-bold">Low</span>
           </label>
         </div>
@@ -43,12 +43,12 @@
         <div class="flex gap-4">
           <label class="flex items-center space-x-2">
             <input [(ngModel)]="task.taskType" value="Work" type="radio" name="type"
-              class="text-blue-600 focus:ring-blue-500">
+              class="accent-gray-900 focus:ring-gray-900">
             <span>Work</span>
           </label>
           <label class="flex items-center space-x-2">
             <input [(ngModel)]="task.taskType" value="Personal" type="radio" name="type"
-              class="text-blue-600 focus:ring-blue-500">
+              class="accent-gray-900 focus:ring-blue-500">
             <span>Personal</span>
           </label>
         </div>
